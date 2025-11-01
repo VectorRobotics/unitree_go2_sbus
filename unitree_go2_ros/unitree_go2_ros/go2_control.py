@@ -84,11 +84,11 @@ class Go2Control:
             All values are clamped to the range [-1.0, 1.0]
         """
         # Convert normalized values to SBUS range
-        strafe_val = self._normalize_to_sbus(y)
+        strafe_val = -self._normalize_to_sbus(y)
         forward_val = self._normalize_to_sbus(x)
-        yaw_val = self._normalize_to_sbus(z)
+        yaw_val = -self._normalize_to_sbus(z)
 
-        self.send_command(f"move:{strafe_val},{forward_val},{yaw_val}")
+        self.send_command(f"move:{strafe_val},{forward_val},{yaw_val},992")
 
     def _normalize_to_sbus(self, value: float) -> int:
         """Convert normalized value (-1.0 to 1.0) to SBUS range.
