@@ -1,0 +1,13 @@
+# Configuration file for Go2 control node
+go2_control_node:
+  ros__parameters:
+    # Serial communication settings
+    serial_port: "/dev/ttyACM0"
+    baudrate: 115200
+
+    # Message type and topic settings
+    use_stamped: false  # Set to true to use TwistStamped instead of Twist
+    cmd_vel_topic: "cmd_vel"
+
+    # Robot behavior settings
+    auto_unlock: true  # Automatically unlock robot on startup
